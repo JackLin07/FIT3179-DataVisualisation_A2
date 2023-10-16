@@ -1,4 +1,4 @@
-Country, GDP_Per_Capita,Current_Interest_Rate,Previous_Interest_Rate,Average_inflation_rate,Current_Wage_Growth,Previous_Wage_Growth
+Country,GDP_Per_Capita,Current_Interest_Rate,Previous_Interest_Rate,Average_inflation_rate,Current_Wage_Growth,Previous_Wage_Growth
 Afghanistan,373,6,,3.38,10.8,5.7
 Albania,6396,3,3,1.78,,
 Algeria,3700,3,3,4.14,,
@@ -203,7 +203,7 @@ Uganda,930,9.5,9.5,3.11,,
 Ukraine,4596,20,22,9.11,,
 United Arab Emirates,43295,5.4,5.4,0.61,,
 United Kingdom,46542,5.25,5.25,2,8.5,8.4
-USA,69185,5.5,5.5,2.46,5.73,6
+United States of America,69185,5.5,5.5,2.46,5.73,6
 Uruguay,17313,9.5,10,7.8,,
 Uzbekistan,2032,14,14,13.95,,
 Vanuatu,3073,,,,,
