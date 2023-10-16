@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/JackLin07/FIT3179-DataVisualisation_A2/main/Datasets/Australian%20Monthly%20Interest%20rate.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "date": "date:'%Y/%m/%d'"
+      }
+    }
+  },
+  "vconcat": [
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "scale": {"domain": {"param": "brush"}},
+          "axis": {"title": ""}
+        },
+        "y": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Interest Rate"
+        },
+        "tooltip": [
+          {"field": "date", "type": "temporal", "title": "Date", "format": "%b/%Y"},
+          {"field": "rate", "type": "quantitative", "title": "Interest Rate"}
+        ]
+      }
+    },
+    {
+      "mark": "area",
+      "params": [
+        {"name": "brush", "select": {"type": "interval",
+        "encodings": ["x"]}}
+        ],        
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "title": "Date"
+        },
+        "y": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Interest Rate", 
+          "axis":{"tickCount": 3, "grid": false}
+        },
+        "tooltip": [
+          {"field": "date", "type": "temporal", "title": "Date", "format": "%b/%Y"},
+          {"field": "rate", "type": "quantitative", "title": "Interest Rate"}
+        ]
+      }
+    }
+  ]
+}
