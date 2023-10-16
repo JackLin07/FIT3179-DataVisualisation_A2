@@ -9,17 +9,50 @@
       }
     }
   },
-  "mark": "line",
-  "encoding": {
-    "x": {
-      "field": "date",
-      "type": "nominal",
-      "title": "Date"
+  "vconcat": [
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "scale": {"domain": {"param": "brush"}},
+          "axis": {"title": ""}
+        },
+        "y": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Interest Rate"
+        },
+        "tooltip": [
+          {"field": "date", "type": "temporal", "title": "Date", "format": "%b/%Y"},
+          {"field": "rate", "type": "quantitative", "title": "Interest Rate"}
+        ]
+      }
     },
-    "y": {
-      "field": "rate",
-      "type": "quantitative",
-      "title": "Interest Rate"
+    {
+      "mark": "area",
+      "params": [
+        {"name": "brush", "select": {"type": "interval",
+        "encodings": ["x"]}}
+        ],        
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "title": "Date"
+        },
+        "y": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Interest Rate", 
+          "axis":{"tickCount": 3, "grid": false}
+        },
+        "tooltip": [
+          {"field": "date", "type": "temporal", "title": "Date", "format": "%b/%Y"},
+          {"field": "rate", "type": "quantitative", "title": "Interest Rate"}
+        ]
+      }
     }
-  }
+  ]
 }
