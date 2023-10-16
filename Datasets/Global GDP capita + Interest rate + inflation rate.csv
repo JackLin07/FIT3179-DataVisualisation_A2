@@ -1,4 +1,4 @@
-Country,GDP Per Capita (Current US$) - UN,Current Interest Rate,Previous Interest Rate,Average inflation rate 2017–2021 (%),Current Wage Growth,Previous Wage Growth
+Country, GDP_Per_Capita,Current_Interest_Rate,Previous_Interest_Rate,Average_inflation_rate,Current_Wage_Growth,Previous_Wage_Growth
 Afghanistan,$373,6,,3.38,10.8,5.7
 Albania,$6,396,3,3,1.78,,
 Algeria,$3,700,3,3,4.14,,
