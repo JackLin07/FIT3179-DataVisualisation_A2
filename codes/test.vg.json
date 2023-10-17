@@ -11,7 +11,7 @@
   },
   "vconcat": [
     {
-      "mark": "line",
+      "mark": {"type": "line", "color": "grey"},
       "encoding": {
         "x": {
           "field": "date",
@@ -31,7 +31,7 @@
       }
     },
     {
-      "mark": "area",
+      "mark": {"type": "area", "color": "grey"},
       "params": [
         {"name": "brush", "select": {"type": "interval",
         "encodings": ["x"]}}
