@@ -11,7 +11,7 @@
   },
   "vconcat": [
     {
-      "mark": {"type": "line", "color": "grey"},
+      "mark": {"type": "line", "color": "#e6550d"},
       "encoding": {
         "x": {
           "field": "date",
