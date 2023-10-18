@@ -50,7 +50,7 @@
         },
         "tooltip": [
           {"field": "date", "type": "temporal", "title": "Date", "format": "%b/%Y"},
-          {"field": "rate", "type": "quantitative", "title": "Interest Rate"}
+          {"field": "Interest_Rate", "type": "quantitative", "title": "Interest Rate"}
         ]
       }
     }
