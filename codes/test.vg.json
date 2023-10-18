@@ -31,7 +31,7 @@
       }
     },
     {
-      "mark": {"type": "area", "color": "grey"},
+      "mark": {"type": "area", "color": "#e6550d"},
       "params": [
         {"name": "brush", "select": {"type": "interval",
         "encodings": ["x"]}}
