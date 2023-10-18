@@ -1,5 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": "container",
   "data": {
     "url": "https://raw.githubusercontent.com/JackLin07/FIT3179-DataVisualisation_A2/main/Datasets/Australian%20Monthly%20Interest%20rate.csv",
     "format": {
