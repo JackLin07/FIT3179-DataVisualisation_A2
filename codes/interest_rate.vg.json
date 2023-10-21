@@ -9,9 +9,16 @@
       }
     }
   },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "vconcat": [
     {
-      "mark": {"type": "line", "color": "#e6550d"},
+      "mark": {"type": "line", "color": "#fd8d3c"},
+      "title": "Australian Central Interest Rates since 1990",
+      "width":800,
+      "height":440,
       "encoding": {
         "x": {
           "field": "date",
@@ -31,7 +38,9 @@
       }
     },
     {
-      "mark": {"type": "area", "color": "#e6550d"},
+      "mark": {"type": "area", "color": "#fd8d3c"},
+      "width":800, 
+      "height":200,
       "params": [
         {"name": "brush", "select": {"type": "interval",
         "encodings": ["x"]}}
