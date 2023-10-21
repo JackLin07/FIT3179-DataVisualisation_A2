@@ -6,6 +6,18 @@
     "projection": {
         "type": "equalEarth"
     },
+    "params": [
+        {
+            "name": "Field_selection",
+            "value": "Current_Interest_Rate",
+            "bind": {
+                "input": "select",
+                "options": ["Current_Interest_Rate", "Average_inflation_rate", "Current_Wage_Growth"],
+                "labels": ["Interest Rate", "Inflation Rate", "Current Wage Growth"],
+                "name": "Select field to filter map"
+            }
+        }
+    ],
     "layer": [
         {
             "transform": [
@@ -39,17 +51,29 @@
                         "key": "Country",
                         "fields": ["GDP_Per_Capita","Current_Interest_Rate","Previous_Interest_Rate","Average_inflation_rate","Current_Wage_Growth","Previous_Wage_Growth"]
                     }
+                },
+                {
+                    "calculate": "datum[Field_selection]",
+                    "as": "selected_field"
                 }
             ],
             "mark": {"type": "geoshape", "stroke": "white"},
             "encoding": {
                 "color": {
-                    "field": "Current_Interest_Rate",
+                    "field": "selected_field",
+                    "title": "Selected Field",
                     "type": "quantitative",
                     "scale": {
                         "type": "threshold",
-                        "domain": [1, 3, 5],
-                        "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+                        "domain": [1, 3, 5, 7, 9, 11, 13],
+                        "range": ["#f0f0f0",
+                                    "#f6d7bb",
+                                    "#fdbe85",
+                                    "#fd8d3c",
+                                    "#f27124",
+                                    "#e6550d",
+                                    "#a63603",
+                                    "#982e02"]
                     }
                 },
                 "tooltip": [
