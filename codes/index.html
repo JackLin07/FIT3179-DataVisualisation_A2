@@ -1,23 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-<script src="vega_lite_vis.js"></script>
-<title>Are We Heading Toward A Recession? </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are We Heading Toward A Recession?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="vega_lite_vis.js"></script>
+    <style>
+        @keyframes gradient {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+        
+    .wave {
+        background: rgb(255 255 255 / 25%);
+        border-radius: 1000% 1000% 0 0;
+        position: fixed;
+        width: 200%;
+        height: 12em;
+        animation: wave 10s -3s linear infinite;
+        transform: translate3d(0, 0, 0);
+        opacity: 0.8;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+    
+    .wave:nth-of-type(2) {
+        bottom: -1.25em;
+        animation: wave 18s linear reverse infinite;
+        opacity: 0.8;
+    }
+    
+    .wave:nth-of-type(3) {
+        bottom: -2.5em;
+        animation: wave 20s -1s reverse infinite;
+        opacity: 0.9;
+    }
+    
+    @keyframes wave {
+        2% {
+            transform: translateX(1);
+        }
+    
+        25% {
+            transform: translateX(-25%);
+        }
+    
+        50% {
+            transform: translateX(-50%);
+        }
+    
+        75% {
+            transform: translateX(-25%);
+        }
+    
+        100% {
+            transform: translateX(1);
+        }
+    }
+
+    body {
+        flex-direction: column;
+        margin: 0; /* Resetting default margin */
+        height: 100vh; /* Taking full viewport height */
+        justify-content: center; /* center horizontally */
+        align-items: center; /* center vertically */
+        margin: auto;
+        /* following is for the wave background */
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow: auto;
+        background: linear-gradient(315deg, #fd8d3c 3%, #ffa15e 38%, rgb(225, 138, 138) 68%, rgb(243, 243, 243) 98%);
+        animation: gradient 15s ease infinite;
+        background-size: 400% 400%;
+        background-attachment: fixed;
+    }
+        /* Base Styles */
+
+        a {
+            color: #0077cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Styles */
+        /*header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem 0;
+        }*/
+
+        header {
+            background-color: #FAF3E0; /* White-ish gold */
+            color: #2F4F4F; /* Dark slate gray */
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* Main Content Styles */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        article {
+            margin-bottom: 40px;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            -webkit-text-fill-color: #fd3c3c;
+        }
+
+        /* Sidebar Styles for Additional Market Data/Links */
+        aside {
+            border-left: 2px solid #e0e0e0;
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
 </head>
 <body>
-<h1>Are We Heading Toward A Recession?</h1>
-    <div id="Interest_rate_trend"></div>
-    <p>Ever since the 2008 crisis, Economies around the globe had been adopting Quantitative Easing to recover from the traumas of the event. However, it is not hard to see that we're yet again approaching the same point in the economic cycle, where Interest rates are highest it's ever been since 2009, Consumer Price Index (CPI) is outrunning wage-rises, and Housing has grown to the point it's unimaginable to afford for many average Australian households. While the Economy grasps to stay above the water, it is hard to say which part of the economic machine will first give-in.</p>
+    <div class="wave">
+    </div>
+    <div class="wave">
+    </div>
+    <div class="wave">
+    </div>
+    <header>
+        <h1>Are We Heading Toward A Recession?</h1>
+        <h2>Delving deep into the economic patterns of Australia.</h2>
+    </header>
+    <div class="container">
+        <div class="container">
+            <article>
+                <h2>The Economic Landscape</h2>
+                <p>
+                    Australia's economic growth, as indicated by the <a href="https://tradingeconomics.com/australia/gdp-growth" target="_blank">0.4% GDP growth in Q2 of 2023</a>, is a positive sign of economic resilience and recovery, especially in a global landscape that has been tumultuous due to the pandemic. The growth is driven by trade, indicating a robust external demand for Australian goods and services. However, a deeper dive into individual sectors and the domestic market might reveal areas that require policy attention to sustain this growth trajectory.
+                </p>
+    
+                <h3>Productivity and Its Implication on Wages</h3>
+                <p>
+                    Wage growth is a critical indicator of economic health, impacting everything from consumer spending to social stability. The recent data pointing to a structural weakness in productivity growth is concerning as it's closely tied to wage growth. When productivity is high, firms can afford to pay higher wages, which in turn stimulates the economy through increased consumer spending. The persistent low productivity growth could hence be a drag on wage growth, impacting the average Australian's purchasing power and living standards.
+                    <div id="CPIvsWageGrowth"></div>  <!-- Compares the CPI against the percentage change in Average Australian wage -->
+                </p>
+    
+                <h3>Interest Rate Trends & Their Impact</h3>
+                <p>
+                    The Reserve Bank of Australia (RBA) has been on a tightening cycle, raising interest rates to curb inflation and stabilize the economy. The <a href="https://www.rba.gov.au/statistics/cash-rate/" target="_blank">cash rate target of 4.1% as of October 4, 2023</a>, is a significant marker, showing a policy shift towards managing inflation which hit 6% in the June quarter 2023. Higher interest rates, while good for curbing inflation, can increase borrowing costs for individuals and businesses, potentially slowing down investment and spending.
+                    <div id="Interest_rate_trend"></div>  <!-- Interest rate of Australia from 1970 to current day -->
+                </p>
+    
+                <h3>Housing Market Dynamics</h3>
+                <p>
+                    The housing market has seen a mix of trends, with prices rising but also showing some signs of cooling off as per recent data. The projected <a href="https://www.corelogic.com.au/news/corelogic-quarterly-review-september-2023" target="_blank">5% growth in property prices for the remainder of 2023</a> indicates a resilient housing market. However, the growing divergence between wage growth and housing prices can lead to affordability concerns. The booming real estate sector may also risk creating a bubble if not balanced with wage growth and other economic indicators.
+                    <div id="WageVsHouseVsRent"></div>  <!-- Comparison between three fields, the percentage change in Average Australian wage, Annual rate change in Median Housing Price and change in Median Rental fee -->
+                </p>
+                <h2>Global Influences: The Bigger Picture</h2>
+            
+                <h3>Rising Bond Yields: A Global Phenomenon</h3>
+                <p>
+                    Bond yields are a reflection of the economic mood in the financial markets. When the yield on a bond rises, it often signifies that investors are expecting higher interest rates due to stronger economic growth or inflation pressures. For instance, the US 10-year Treasury bond yield is closely watched by investors around the globe as it's seen as a bellwether for global interest rates and may signal shifts in monetary policy. 
+                    <img src="US 10yr bonds.png" alt="US 10yr Bonds Chart" width="100%">  <!-- Photo 2 -->
+                </p>
+                <p>
+                    A rising bond yield can have a ripple effect across economies. It often leads to higher borrowing costs as interest rates increase in tandem with bond yields. This scenario can challenge sectors reliant on borrowing, like real estate and corporate investments, potentially slowing down economic growth. Moreover, higher yields can cause a shift of capital flow from riskier assets like equities to bonds, affecting stock markets worldwide. Understanding the dynamics of bond yields can equip investors and policymakers with insights to navigate the financial landscape.
+                </p>
 
-    <!-- <div id="Map_of_Interest_Rates"></div> -->
-    <div id="Map_of_everything"></div>
-
-<h1>Resemblence to 2008 Financial Crisis</h1>
+                <h3>The US Housing Pressure: A Cautionary Tale</h3>
+                <p>
+                    The US housing market has seen its share of ups and downs, often reflecting broader economic trends. The 2008 financial crisis, triggered in part by a housing bubble, is a stark reminder of the interconnectedness of the housing sector with the larger economy. More recently, the US housing market has experienced price surges, driven by a combination of low interest rates, limited housing supply, and strong demand.
+                    <img src="US_housing_pressure.png" alt="US Housing Pressure Chart" width="100%" padding-top="5px">  <!-- Photo 1 -->
+                </p>
+    
+                <h3>A Bird's Eye View: Mapping the Economic Indicators</h3>
+                <p>
+                    Australia is not an economic island; global events, like the rising bond yields and geopolitical tensions, can significantly impact the domestic economy. For instance, the tensions between major trading partners like China and the US can affect Australia's trade dynamics. Similarly, global geopolitical unrest can lead to fluctuations in commodity prices, affecting Australia's exports and imports, hence its trade balance and overall economic stability.
+                    <div id="Map_of_everything"></div>  <!-- Contains a global map of earth, detailing the Interest rate, CPI, GDP/capita, wage growth rate of the nations -->
+                </p>
+                <h2>Looking Ahead </h2>
+                <p>
+                    The pressure in the US housing market serves as a lesson for economies worldwide. Rising house prices without a corresponding rise in wages can lead to housing affordability issues, potentially locking many out of homeownership. Additionally, a speculative surge in housing prices can create a bubble, leading to financial instability if it bursts. For countries like Australia, monitoring the housing market and ensuring a balance between housing prices, wage growth, and interest rates is crucial to prevent a similar scenario and promote economic stability.
+                </p>
+            </article>
+        <!-- <aside>
+            <h3>Related Market Data</h3>
+            <ul>
+                <li><a href="#">Stock Market Analysis</a></li>
+                <li><a href="#">Interest Rate Trends</a></li>
+                <li><a href="#">Global Economic Indicators</a></li>
+            </ul>
+        </aside> -->
+    </div>
+    <footer>
+        <p>© Jack's Australian 2023 Market Insights Blog | Data Sources: <a href="https://www.abs.gov.au/" target="_blank">Australian Bureau of Statistics</a>, <a href="https://fred.stlouisfed.org/" target="_blank">FRED Property</a></p>
+    </footer>
 </body>
 </html>
