@@ -10,7 +10,7 @@
         {
             "mark": {
                 "type": "line",
-                "color": "red",
+                "color": "#fd8d3c",
                 "point": true
             },
             "encoding": {
