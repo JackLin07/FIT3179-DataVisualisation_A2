@@ -14,7 +14,7 @@
                 "input": "select",
                 "options": ["Current_Interest_Rate", "Average_inflation_rate", "Current_Wage_Growth"],
                 "labels": ["Interest Rate", "Inflation Rate", "Current Wage Growth"],
-                "name": "Select field to filter map"
+                "name": "Filter Map"
             }
         }
     ],
@@ -61,7 +61,9 @@
             "encoding": {
                 "color": {
                     "field": "selected_field",
-                    "title": "Selected Field",
+                    "title": {
+                        "signal": "Field_selection === 'Current_Interest_Rate' ? 'Interest Rate' : (Field_selection === 'Average_inflation_rate' ? 'Inflation Rate' : 'Current Wage Growth')"
+                    },
                     "type": "quantitative",
                     "scale": {
                         "type": "threshold",
@@ -74,7 +76,11 @@
                                     "#e6550d",
                                     "#a63603",
                                     "#982e02"]
-                    }
+                    },
+                    "legend": {
+                    "orient": "bottom",
+                    "direction": "horizontal"
+            }
                 },
                 "tooltip": [
                     {"field": "properties.NAME", "type": "nominal", "title": "Country"},
