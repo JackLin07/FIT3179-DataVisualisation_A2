@@ -1,6 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Wage Growth vs. House Price Movement vs. Rent Movement in Australia",
+    "autosize": {
+        "type": "fit-x",
+        "contains": "padding"
+    },
     "data": {
         "url": "https://raw.githubusercontent.com/JackLin07/FIT3179-DataVisualisation_A2/main/Datasets/merged_real_wage_house_rent_data_cleaned.csv"
     },
