@@ -1,0 +1,79 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Wage Growth vs. House Price Movement vs. Rent Movement in Australia",
+    "data": {
+        "url": "https://raw.githubusercontent.com/JackLin07/FIT3179-DataVisualisation_A2/main/Datasets/merged_real_wage_house_rent_data_cleaned.csv"
+    },
+    "mark": {
+        "type": "line",
+        "point": true
+    },
+    "width": 800,
+    "height": 400,
+    "encoding": {
+        "x": {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year"
+        },
+        "y": {
+            "field": "Value",
+            "type": "quantitative",
+            "title": "Percentage (%)"
+        },
+        "color": {
+            "field": "Metric",
+            "type": "nominal",
+            "legend": {
+                "title": "Metrics",
+                "orient": "bottom",
+                "columns": 3
+            }
+        },
+        "tooltip": [
+            {
+                "field": "Year",
+                "type": "ordinal",
+                "title": "Year"
+            },
+            {
+                "field": "Wage Growth (%)",
+                "type": "quantitative",
+                "title": "Wage Growth (%)"
+            },
+            {
+                "field": "Average weekly ordinary time earnings",
+                "type": "nominal",
+                "title": "Average Weekly Earnings"
+            },
+            {
+                "field": "Median House Price ($k)",
+                "type": "quantitative",
+                "title": "Median House Price ($k)"
+            },
+            {
+                "field": "Median House Price Movement(%)",
+                "type": "quantitative",
+                "title": "House Price Movement (%)"
+            },
+            {
+                "field": "Annual Rent Movement(%)",
+                "type": "quantitative",
+                "title": "Rent Movement (%)"
+            }
+        ]
+    },
+    "transform": [
+        {
+            "fold": [
+                "Wage Growth (%)",
+                "Median House Price Movement(%)",
+                "Annual Rent Movement(%)"
+            ],
+            "as": [
+                "Metric",
+                "Value"
+            ]
+        }
+    ]
+}
