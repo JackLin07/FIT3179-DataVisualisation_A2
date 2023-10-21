@@ -1,8 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "What is the Global Economic Status",
-    "width": 800,
-    "height": 400,
+    "autosize": {
+        "type": "fit",
+        "contains": "padding"
+    },
     "projection": {
         "type": "equalEarth"
     },
