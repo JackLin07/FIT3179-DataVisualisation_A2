@@ -1,0 +1,59 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Inflation Rate (CPI) vs. Wage Growth in Australia",
+    "width": 800,
+    "height": 400,
+    "data": {
+        "url": "https://raw.githubusercontent.com/JackLin07/FIT3179-DataVisualisation_A2/main/Datasets/merged_cpi_wage_growth_data.csv"
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "line",
+                "color": "red",
+                "point": true
+            },
+            "encoding": {
+                "x": {
+                    "field": "Quarter",
+                    "type": "temporal",
+                    "title": "Date"
+                },
+                "y": {
+                    "field": "Annual Change CPI",
+                    "type": "quantitative",
+                    "title": "Annual Change in CPI (%)"
+                },
+                "tooltip": [
+                    {"field": "Quarter", "type": "temporal", "title": "Date"},
+                    {"field": "Annual Change CPI", "type": "quantitative", "title": "Annual CPI Change(%)"},
+                    {"field": "Wage Growth", "type": "quantitative", "title": "Wage Growth(%)"}
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "line",
+                "color": "green",
+                "point": true
+            },
+            "encoding": {
+                "x": {
+                    "field": "Quarter",
+                    "type": "temporal",
+                    "title": "Date"
+                },
+                "y": {
+                    "field": "Wage Growth",
+                    "type": "quantitative",
+                    "title": "Wage Growth (%)"
+                },
+                "tooltip": [
+                    {"field": "Quarter", "type": "temporal", "title": "Date"},
+                    {"field": "Annual Change CPI", "type": "quantitative", "title": "Annual CPI Change(%)"},
+                    {"field": "Wage Growth", "type": "quantitative", "title": "Wage Growth(%)"}
+                ]
+            }
+        }
+    ]
+}
